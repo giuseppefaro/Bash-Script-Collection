@@ -1,16 +1,16 @@
 #!/bin/sh
 #################################################################################
-# This script will backup all database listed in the variable "mydatabase"	#
-# and will save them in the folder specify below				#
-#									   	#
-# NOTE: this script work only with Mysql		                    	#
-#									   	#
-# Created By Giuseppe Faro 						     	#
+# This script will backup all database listed in the variable "mydatabase"  	#
+# and will save them in the folder specify below				                #
+#									                                          	#
+# NOTE: this script work only with Mysql		                               	#
+#				                                        					   	#
+# Created By Giuseppe Faro 		                        				     	#
 #################################################################################
 
 #################################################################################
-# Add other database respecting the same format	in the example			#
-# example add 'DatabaseName' below the other DB  				#
+# Add other database respecting the same format	in the example	           		#
+# example add 'DatabaseName' below the other DB  			                	#
 #################################################################################
 
 mydatabase=(
@@ -19,14 +19,14 @@ mydatabase=(
   )
   
 ################################# Settings ######################################
-# Change myuser if you dont want that root is the owner of the backup file	#
+# Change myuser if you dont want that root is the owner of the backup file  	#
 #################################################################################
 
-mydbuser="" 				# User on the Database
-mypass=""          			# password for the Database
-myuser=""				# Owner of backup files after the Chown	 
-backupfolder=" /var/backup "		# Folder for the DB Backup files ( You have to create the backup
-file_perm="440"				# File Permissions ( default 440 - read-read-none)
+mydbuser="" 				    # User on the Database
+mypass=""          		    	# password for the Database
+myuser=""				        # Owner of backup files after the Chown
+backupfolder="/var/backup "		# Folder for the DB Backup files ( You have to create the backup
+file_perm="440"				    # File Permissions ( default 440 - read-read-none)
 
 
 
