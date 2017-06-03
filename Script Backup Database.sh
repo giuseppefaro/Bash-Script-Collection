@@ -49,11 +49,22 @@ done
 chown $myuser "$logfile"
 echo "file permission changed to "$myuser >> "$logfile"
 echo "Removing file older than 30 days" >> "$logfile"
+
+# if
+#
+#
+#
+#
+#
+
 find "$backupfolder" -name $mydatabase"_*"  -mtime +30 >> "$logfile"
 find "$backupfolder" -name $mydatabase"_*"  -mtime +30 -exec rm {} \;
 echo "Backup completed at $(date +'%d-%m-%Y %H:%M:%S')" >> "$logfile"
 echo "*****************" >> "$logfile"
 
 exit 0
+
+
+
 
 
