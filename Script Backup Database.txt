@@ -17,7 +17,6 @@ mydatabase=(
   'phpmyadmin' 
   
   )
-
   
 ################################# Settings ######################################
 # Change myuser if you dont want that root is the owner of the backup file	#
