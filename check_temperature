@@ -1,0 +1,16 @@
+#!/bin/bash
+# require the app sensors
+
+### check CPU Temperature 
+cpu_temp(){
+	#check cpu temperature
+	core_temp="sensors | grep -oP 'Core.*?\+\K[0-9.]+'"
+	#if temperature > 85 show message
+	eval "$core_temp"
+	if 
+	
+	
+}
+
+# execute script
+cpu_temp
