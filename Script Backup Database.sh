@@ -28,6 +28,7 @@ myuser=""				        # Owner of backup files after the Chown
 backupfolder="/var/backup "		# Folder for the DB Backup files ( You have to create the backup
 file_perm="700"				    # File Permissions ( default 700 - read-read-none)
 
+
 ## this variable need to be implemented
 autoclean="0"                   # add the number of day to auto-delete the files, Set 0 to disable
 
