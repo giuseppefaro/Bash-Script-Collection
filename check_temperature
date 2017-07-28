@@ -42,7 +42,7 @@ gpu_temp (){
 
 #check hdd smart status
 hdd_smart(){
-	array=(a b c d e f g h )
+	array=(a b c d )
 	echo "HD Smart Status:"
 	for item in ${array[*]}
 	do
@@ -59,7 +59,7 @@ hdd_smart(){
 #	do
 #	# run the check
 	#echo "/dev/sd${item}" && 
-	eval "sudo smartctl -H /dev/sd${item} | grep 'SMART Health Status:'" ; eval "ls /dev/sd${item}"
+	eval "ls /dev/sd${item}" ;eval "sudo smartctl -H --smart=on /dev/sd${item} | grep 'SMART Health Status:'" 
 	done
 }
 
