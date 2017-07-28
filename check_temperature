@@ -1,16 +1,64 @@
 #!/bin/bash
-# require the app sensors
+
+# requirement:
+# lm_sensors
+# nvidia videocard
+# smartmontools
 
 ### check CPU Temperature 
 cpu_temp(){
+
 	#check cpu temperature
 	core_temp="sensors | grep -oP 'Core.*?\+\K[0-9.]+'"
-	#if temperature > 85 show message
-	eval "$core_temp"
-	if 
-	
-	
+
+#	if temperature > 85 show message
+ 	eval "$core_temp"
+	# for each core / line ; do
+#	
+#		if [  > 20];
+# 		then
+# 			echo "The CPU is Overheating"
+#			eval 
+#		else
+#			echo "The CPU Temperature is fine"	
+#		fi
+#	done
 }
 
-# execute script
-cpu_temp
+#check VGA Temperature
+gpu_temp (){
+
+#	if [gpu is nvidia];
+#	then
+	#check GPU temperature and fan speed
+	
+	check="nvidia-smi -q | grep 'GPU Current Temp'" 
+	echo "GPU Temperature is :"
+	eval "$check"
+#	else
+#	exit
+
+}
+
+#check hdd smart status
+hdd_smart(){
+	array=(a b c d e f g h )
+	echo "HD Smart Status:"
+	for item in ${array[*]}
+	do
+#	echo $item
+	 
+#	n=#number hdd
+#	for ((i=0 i<$n;i++));
+#	do
+#	## enable smart
+#	eval "sudo smartctl --smart=on /dev/sd+($i)"
+#	eval "sudo smartctl --smart=on /dev/sd${item}"
+#	echo $array[*]
+#	for ((i=0 i<$n;i++));
+#	do
+#	# run the check
+	#echo "/dev/sd${item}" && 
+	eval "sudo smartctl -H /dev/sd${item} | grep 'SMART Health Status:'" 
+	done
+}
