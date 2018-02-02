@@ -5,12 +5,6 @@
 #
 
 
-#if [[ $UID != 8881 ]]; then
-#echo "you are no gef, so don't use this
-#fi
-
-
-
 # run linuxchk
 #linuxchk='/tools/SITE/etc/bin/linuxchk'
 #$linuxchk
@@ -19,12 +13,10 @@
 lsblk
 
 
-# List available disk
-disk_available= lsscsi  | awk '{if (NR!=1){ print $6}}'
-#echo $disk_available
 
+disk_available=$(lsscsi  | awk '{if (NR!=1){ print $6}'})
 
-disk_n=${#disk_available[@]}
+disk_n="$disk_available" | wc -l
 echo $disk_n
 
 # check SMART Status ( create a for to get all the hard disk checked )
@@ -32,6 +24,7 @@ echo $disk_n
 #        sudo smartctl -a "${disk_available[${i}]}"| grep 'SMART Health Status:'
 #done
 
+echo "space"
 
 
 # check SMART Status ( create a for to get all the hard disk checked )
@@ -45,12 +38,14 @@ errormsg=( "has fallen off the bus"
 # this part count how many string are included in the var $errormsg
 errormsg_db=${#errormsg[@]} 
 
-# Starting 
+# Starting to check common error in /var/log/messages
 for (( i=0;i<$errormsg_db;i++));do
         less /var/log/messages | grep "${errormsg[${i}]}"
-        #echo "No error like " ${errormsg[${i}]}
+        echo "No error like " ${errormsg[${i}]}
 done
 
+disk_available=$(lsscsi  | awk '{if (NR!=1){ print $6}'})
+echo $disk_available
 
 # HDD disk space left <25%
 
